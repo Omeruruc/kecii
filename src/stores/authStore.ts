@@ -8,16 +8,16 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set) => ({
   isAuthenticated: false,
-  
+
   login: (username, password) => {
-    if (username === 'sabrikurban' && password === '20242025') {
+    if (username === 'sabrikurban' && password === '0042') {
       set({ isAuthenticated: true });
       localStorage.setItem('isAuthenticated', 'true');
       return true;
     }
     return false;
   },
-  
+
   logout: () => {
     set({ isAuthenticated: false });
     localStorage.removeItem('isAuthenticated');

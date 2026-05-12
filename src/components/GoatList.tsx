@@ -33,7 +33,8 @@ const GoatList = () => {
   };
   
   const filteredGoats = goats.filter(goat => 
-    goat.owner_name.toLowerCase().includes(searchTerm.toLowerCase())
+    goat.owner_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    (goat.notes && goat.notes.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
@@ -48,7 +49,7 @@ const GoatList = () => {
             </div>
             <input
               type="text"
-              placeholder="Keçi sahibi ara..."
+              placeholder="Keçi sahibi veya açıklama ara..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10 pr-4 py-2 w-full border border-gray-300 rounded-md shadow-sm focus:ring-amber-500 focus:border-amber-500"
